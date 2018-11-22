@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Bike::Bike(int c, Block sp, vector<int> d): color(c){
+Bike::Bike(int c, Block* sp, vector<int> d): color(c){
     // int c is the color of the bike
     // sp (starting position) is a 2d vector representing where
     // the head starts on the board. It must be valid
@@ -11,19 +11,15 @@ Bike::Bike(int c, Block sp, vector<int> d): color(c){
     tailSize = 0;
 }
 
-vector<int> getHead(){
+Block* Bike::getHead(){
     return head;
 }
 
-int getTailSize(){
+int Bike::getTailSize(){
     return tailSize;
 }
 
-vector<Block> getTail(){
-    return tail;
-}
-
-Block move(int move){
+Block* Bike::move(int move){
     // 0 == go forward
     // 1 == go right
     // 2 == go left
@@ -39,15 +35,16 @@ Block move(int move){
         default:
             break;
     }
-    head.setX(head.getX() + direction.at(0));
-    head.setY(head.getY() + direction.at(1));
+    head->setX(head->getX() + direction.at(0));
+    head->setY(head->getY() + direction.at(1));
 
     // move head to new block
     // set old block to val + 4
+    return head;
     
 }
 
-int getScore(){
+int Bike::getScore(){
     return tailSize;
 }
 

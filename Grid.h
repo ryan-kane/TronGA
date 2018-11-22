@@ -15,7 +15,6 @@ class Grid{
     int sizeY;
     int numBikes;
     Block* center; // coords of 'center' of grid (best approx)
-
     // 0 == empty
     // 1-4 == head of bike (different numbers are for the 4 colors)
     // 5-8 == tail of bike (different numbers are for the 4 colors)
@@ -23,6 +22,12 @@ class Grid{
 
     public: 
         Grid(int, int); // Constructor
+
+        vector<Block*> getGrid();
+
+        int getSizeX();
+
+        int getSizeY();
         
         Bike addBike(int); // creates and returns a bike object of color
 
@@ -34,11 +39,11 @@ class Grid{
 
         int getNumBikes(); // get the number of bikes on the grid
 
-        Block* moveBike(vector<int>);
+        Block* moveBike(Bike, int);
 
         Block* getBlock(int, int); // get block with x, y val
         
-        Block* getBlocks(int, int, int, int); //get blocks between x1, x2 and y1, y2
+        vector<Block*> getBlocks(int, int, int, int); //get blocks between x1, x2 and y1, y2
 };
 
 #endif

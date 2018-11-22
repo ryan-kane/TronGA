@@ -1,3 +1,5 @@
+#include "Block.h"
+
 Block::Block(int x, int y, int val): x(x), y(y), val(val){}
 
 int Block::getX(){

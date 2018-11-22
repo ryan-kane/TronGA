@@ -3,11 +3,16 @@
 
 #include "Grid.h"
 
+#include <vector>
+
+using namespace std;
+
+
 class View{
 
     public:
         View();
-        void display(Grid);
+        void displayGrid(Grid);
         vector<vector<int>> bikeView(Grid, int);
 
 };
