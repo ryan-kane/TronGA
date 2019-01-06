@@ -9,12 +9,11 @@ using namespace std;
 
 
 class View{
-
+    char convertVal(int);
     public:
         View();
         void displayGrid(Grid);
-        vector<vector<int>> bikeView(Grid, int);
-
+        void playerView(Grid, int, vector<int>&);
 };
 
 #endif

@@ -1,0 +1,16 @@
+In: Every value in each of the parts of the board (empty, friendly, enemy)
+Out: A number that is one of the columns
+
+Activations need to be between 0 and 1.
+Try Sigmoid function
+
+A neuron is a function that takes in inputs and outputs a number
+
+A neuron has a vector of weights, taking in a number of inputs.
+
+A layer is a vector of neurons(vector of weights), aka a matrix.
+
+The network is made up of layers(matrices), given a vector of
+inputs, the network runs the inputs through the first layer, which runs
+the inputs through each neuron, which runs the inputs through each weight, with
+the sigmoid function and bias.
