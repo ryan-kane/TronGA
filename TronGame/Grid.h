@@ -14,18 +14,18 @@ class Grid{
         Bike* bike1;
         Bike* bike2;
         // vector<Obstacle> obstacles;
-        vector<vector<int>> grid; // collection of block objects
+        vector<vector<int> > grid; // collection of block objects
         int sizeX;
         int sizeY;
 
     public: 
-        Grid(int, int); // Constructor
+        Grid(int, int); // Constructor   
 
         int getVal(int, int);
 
         void setVal(int, int, int);
 
-        vector<vector<int>> getGrid();
+        vector<vector<int> > getGrid();
 
         int getSizeX();
 

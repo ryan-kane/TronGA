@@ -4,8 +4,8 @@ tron_test: $(OBJ)
 	g++ -o tron_test $(OBJ) -g
 	#rm -f $(OBJ)
 
-main.o: TronGame/main.cpp 
-	g++ -c TronGame/main.cpp -g
+main.o: main.cpp 
+	g++ -c main.cpp -g
 
 Bike.o: TronGame/Bike.cpp TronGame/Bike.h
 	g++ -c TronGame/Bike.cpp -g

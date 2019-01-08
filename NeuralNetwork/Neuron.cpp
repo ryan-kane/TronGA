@@ -15,7 +15,7 @@ Neuron::Neuron(int num_inputs): num_inputs(num_inputs){
 }
 */
     for(int i = 0; i < num_inputs; i++){
-        weights.push_back(((double) std::rand() / (RAND_MAX)) * 2 - 1);
+        weights.push_back(((double) rand() / (RAND_MAX)) * 2 - 1);
     }
 }
 
@@ -29,7 +29,7 @@ Neuron::Neuron(Neuron* n1, Neuron* n2, int score1, int score2){
         // two neurons weights
         double w1 = n1->getWeight(i);
         double w2 = n2->getWeight(i);
-        double mutation = ((double) std::rand() / (RAND_MAX)) * 2 - 1;
+        double mutation = ((double) rand() / (RAND_MAX)) * 2 - 1;
         int total = score1 + score2;
         double new_weight;
         if(mutation < (score1/total)-1){
@@ -57,9 +57,12 @@ double Neuron::Activate(std::vector<double> inputs){
 
     //reduce it to between 0 and 1
     //f(x) = 1/(1+exp(-x))
-
+    // std::cout << "Neuron::Activate inputs:" << std::endl;
+    // for(int i = 0; i < inputs.size(); i++){
+    //     std::cout << inputs.at(i);
+    // }
+    // std::cout << std::endl;
     double out = 1 / (1 + exp((-1) * total));
-    std::cout << out;
     return out;
 }
 

@@ -14,6 +14,7 @@ Grid::Grid(int sx, int sy): sizeX(sx), sizeY(sy){
     setVal(bike2->getHeadX(), bike2->getHeadY(), bike2->getColor());
 }
 
+
 int Grid::getVal(int x, int y){
     int val = OOB; // value on board at x and y coords
     // size check
@@ -62,14 +63,17 @@ int Grid::getSizeX(){
 
 int Grid::move(int player, int move){
     Bike* b = getBike(player);
+    int proxy;
     switch(move){
         case RIGHT:
+            proxy = b->getDirectionX();
             b->setDirectionX((-1) * b->getDirectionY());
-            b->setDirectionY(b->getDirectionX());
+            b->setDirectionY(proxy);
             break;
         case LEFT:
-            b->setDirectionX(b->getDirectionY());
+            proxy = b->getDirectionY();
             b->setDirectionY((-1) * b->getDirectionX());
+            b->setDirectionX(proxy);
             break;
         default:
             // going straight doesnt change anything
@@ -92,7 +96,7 @@ int Grid::move(int player, int move){
     return preVal; // will be 0 if the space was valid
 }
 
-vector<vector<int>> Grid::getGrid(){
+vector<vector<int> > Grid::getGrid(){
     return grid;
 }
 

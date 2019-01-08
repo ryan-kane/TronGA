@@ -1,8 +1,8 @@
 #include "Game.h"
 
-Game::Game(Player* p1, Player* p2){
-    p1 = p1;
-    p2 = p2;
+Game::Game(Player* player1, Player* player2){
+    p1 = player1;
+    p2 = player2;
     view = new View();
     grid = new Grid(GRID_SIZEX, GRID_SIZEY);
 }
@@ -21,6 +21,8 @@ int Game::start(){
         view->displayGrid(*grid);
 
         // collect player views
+        p1v.clear();
+        p2v.clear();
         view->playerView(*grid, PLAYER_1, p1v);
         view->playerView(*grid, PLAYER_2, p2v);
 
@@ -32,13 +34,14 @@ int Game::start(){
         if(invalid){
             // player 1 loses
             winner = PLAYER_2;
+        }else{
+            invalid = grid->move(PLAYER_2, p2m);
+            if(invalid){
+                // player 2 loses
+                winner = PLAYER_1;
+            }
         }
-
-        invalid = grid->move(PLAYER_2, p2m);
-        if(invalid){
-            // player 2 loses
-            winner = PLAYER_1;
-        }
+        
     }
     // return winning player
     delete view;

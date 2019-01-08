@@ -14,6 +14,7 @@ class Player{
         Player();
         ~Player();
         int move(std::vector<int>&);
+        int convertToDir(int);
 };
 
 #endif

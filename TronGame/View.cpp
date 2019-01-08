@@ -5,7 +5,7 @@
 View::View(){}
 
 void View::displayGrid(Grid grid){
-    vector<vector<int>> displayGrid;
+    vector<vector<int> > displayGrid;
     // system("cls");
     for(int i = 0; i < grid.getSizeY(); i++){
         vector<int> row;

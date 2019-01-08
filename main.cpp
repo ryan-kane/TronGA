@@ -1,9 +1,8 @@
-// #include "Game.h"
-#include "View.h"
-#include "Grid.h"
-#include "Bike.h"
-#include "Game.h"
-#include "../Player.h"
+#include "TronGame/View.h"
+#include "TronGame/Grid.h"
+#include "TronGame/Bike.h"
+#include "TronGame/Game.h"
+#include "Player.h"
 
 #include <iostream>
 #include <vector>
