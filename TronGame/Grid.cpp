@@ -14,6 +14,10 @@ Grid::Grid(int sx, int sy): sizeX(sx), sizeY(sy){
     setVal(bike2->getHeadX(), bike2->getHeadY(), bike2->getColor());
 }
 
+Grid::~Grid(){
+    // delete bike1;
+    // delete bike2;
+}
 
 int Grid::getVal(int x, int y){
     int val = OOB; // value on board at x and y coords
@@ -86,6 +90,8 @@ int Grid::move(int player, int move){
     if(preVal != 0){
         // collision
         removeBike(b);
+        delete bike1;
+        delete bike2;
         return preVal; // will be nonzero (invalid)
     }
     // move head to new block

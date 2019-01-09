@@ -17,21 +17,12 @@ class Evolver{
     NUM_WINNERS = (2^(n-5))
     NUM_OFFSPRING = (2^(n-3))-1
     */
+    Generation* generation;
     public:
-        Evolver(Generation* g): generation(g){};
-        Generation* Evolve(int num_generations){
-            Generation* nextGeneration;
-            for(int i = 0; i < num_generations; i++){
-                Tournament tournament = Tournament(generation);
-                tournament.start();
-                generation->display();
-                nextGeneration = generation->breed(NUM_OFFSPRING);
-                generation = nextGeneration;    
-            }
-            return generation;
-        };
-    private:
-        Generation* generation;
+        Evolver(Generation*);
+        ~Evolver();
+        Generation* getGeneration();
+        void Evolve(int);
 };
 
 #endif

@@ -2,18 +2,20 @@
 #define VIEW_H
 
 #include "Grid.h"
+#include "Game.h"
+#include "../Player.h"
 
 #include <vector>
 
-using namespace std;
-
-
 class View{
-    char convertVal(int);
+    private:
+        char convertVal(int);
+
     public:
         View();
-        void displayGrid(Grid);
-        void playerView(Grid, int, vector<int>&);
+        void displayGrid(Grid*);
+        void displayGame(Game*, int);
+        void displayPlayer(Player*);
 };
 
 #endif

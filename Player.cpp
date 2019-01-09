@@ -2,10 +2,24 @@
 
 Player::Player(){
     network = new Network(NUM_INPUTS, NUM_HIDDEN_LAYERS, NUM_NEURONS, NUM_OUTPUTS);
+    id = next_id++;
+}
+
+Player::Player(Player* p1, Player* p2){
+    network = new Network(p1->getNetwork(), p2->getNetwork());
+    id = next_id++;
 }
 
 Player::~Player(){
     delete network;
+}
+
+Network* Player::getNetwork(){
+    return network;
+}
+
+int Player::get_id(){
+    return id;
 }
 
 int Player::move(std::vector<int> &view){
@@ -22,14 +36,8 @@ int Player::move(std::vector<int> &view){
     outputs = network->FeedForward(inputs);
 
     // convert output to move
-    std::cout << "Player::move" << std::endl;
-    for(int i = 0; i < outputs.size(); i++){
-        std::cout << outputs.at(i);
-    }
-    std::cout << " ";
-
     // return the most confident move
-    int move = -1; // all outputs will be greater than 0
+    double move = -1; // all outputs will be greater than 0
     int confident;
     for (int i = 0; i < outputs.size(); i++){
         if(outputs.at(i) > move){

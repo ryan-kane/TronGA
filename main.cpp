@@ -1,19 +1,22 @@
-#include "TronGame/View.h"
-#include "TronGame/Grid.h"
-#include "TronGame/Bike.h"
-#include "TronGame/Game.h"
 #include "Player.h"
+#include "Generation.h"
+#include "Evolver.h"
 
 #include <iostream>
 #include <vector>
 
 int main(){
-    Player* p1 = new Player();
-    Player* p2 = new Player();
-    int winner;
-    Game game = Game(p1, p2);
-    winner = game.start();
-    delete p1;
-    delete p2;
-    return 0;
+    Generation* g = new Generation();
+    
+    // fill generation with players
+    Player* p;
+    for(int i = 0; i < POPULATION; i++){
+        p = new Player();
+        g->addPlayer(p);
+    }
+    
+    Evolver e = Evolver(g);
+    e.Evolve(NUM_GENERATIONS);
+    // delete t;
+    // return 0;
 }

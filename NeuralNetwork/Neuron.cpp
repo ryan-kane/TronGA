@@ -21,21 +21,28 @@ Neuron::Neuron(int num_inputs): num_inputs(num_inputs){
 
 Neuron::Neuron(std::vector<double> weights) : weights(weights), num_inputs(weights.size()){}
 
-Neuron::Neuron(Neuron* n1, Neuron* n2, int score1, int score2){
+Neuron::Neuron(Neuron* n1, Neuron* n2){
     // it is assumed that the neurons passed in are of the same size
     num_inputs = n1->getNumInputs();
+    double crossover_p = ((double) rand() / (RAND_MAX));
+    double mutation_p = ((double) rand() / (RAND_MAX));
     for(int i = 0; i < n1->getNumInputs(); i++){
         // create a new weight that is a number created from the
         // two neurons weights
         double w1 = n1->getWeight(i);
         double w2 = n2->getWeight(i);
-        double mutation = ((double) rand() / (RAND_MAX)) * 2 - 1;
-        int total = score1 + score2;
+        
         double new_weight;
-        if(mutation < (score1/total)-1){
-            new_weight = w1 + mutation;
+        // TODO: determine the new weights 
+        double crossover = ((double) rand() / (RAND_MAX));
+        if(crossover > crossover_p){
+            new_weight = w1;
         }else{
-            new_weight = w2 + mutation;
+            new_weight = w2;
+        }
+        double mutate = ((double) rand() / (RAND_MAX));
+        if(mutate > mutation_p){
+            new_weight = new_weight * mutate;
         }
         weights.push_back(new_weight);
     }

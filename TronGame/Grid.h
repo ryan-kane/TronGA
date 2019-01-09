@@ -21,6 +21,8 @@ class Grid{
     public: 
         Grid(int, int); // Constructor   
 
+        ~Grid();
+
         int getVal(int, int);
 
         void setVal(int, int, int);

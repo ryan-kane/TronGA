@@ -2,6 +2,7 @@
 
 #include <stdlib.h>
 #include <sstream>
+#include <iostream>
 
 Network::Network(int ni, int nhl, int nn, int no): num_inputs(ni), 
                 num_hidden_layers(nhl), num_neurons(nn), num_outputs(no)
@@ -24,7 +25,7 @@ Network::Network(int ni, int nhl, int nn, int no): num_inputs(ni),
     }
 }
 
-Network::Network(Network* n1, Network* n2, int score1, int score2){
+Network::Network(Network* n1, Network* n2){
     // it is assumed that the networks are of the exact same dimensions
     num_inputs = n1->getNumInputs();
     num_hidden_layers = n1->getNumHiddenLayers();
@@ -35,13 +36,13 @@ Network::Network(Network* n1, Network* n2, int score1, int score2){
     for(int i = 0; i < num_hidden_layers + 1; i++){
         l1 = n1->getLayer(i);
         l2 = n2->getLayer(i);
-        layers.push_back(new Layer(l1, l2, score1, score2));   
+        layers.push_back(new Layer(l1, l2));   
     }
 }
 
 Network::~Network(){
-    for(int i = 0; i < layers.size(); i++){
-        delete layers[i];
+    for(int i = 0; i < layers.size(); i++){ 
+        delete layers.at(i);
     }
 }
 

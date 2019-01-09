@@ -2,19 +2,23 @@
 #define GAME_H
 
 #include "Grid.h"
-#include "View.h"
 #include "../Settings.h"
 #include "../Player.h"
 
 class Game{
-    Grid* grid;
-    View* view;
-    Player* p1;
-    Player* p2;
+    private:
+        Grid* grid;
+        Player* p1;
+        Player* p2;
+        int moves;
     
     public:
         Game(Player*, Player*);
-        int start();
+        ~Game();
+        int getMoves();
+        Grid* getGrid();
+        Player* getPlayer(int);
+        Player* start();
 };
 
 #endif

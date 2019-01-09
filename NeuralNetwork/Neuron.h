@@ -8,7 +8,7 @@ class Neuron{
     public:
         Neuron(int);
         Neuron(std::vector<double>);
-        Neuron(Neuron*, Neuron*, int, int);
+        Neuron(Neuron*, Neuron*);
         int getNumInputs();
         double getWeight(int);
         double Activate(std::vector<double>);

@@ -11,7 +11,7 @@ class Layer{
     public:
         Layer(int, int);
         Layer(std::vector<Neuron*>);
-        Layer(Layer*, Layer*, int, int);
+        Layer(Layer*, Layer*);
         ~Layer();
         int getNumNeurons();
         Neuron* getNeuron(int);

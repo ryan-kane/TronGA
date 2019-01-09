@@ -9,7 +9,7 @@
 class Network{
     public:
         Network(int, int, int, int);
-        Network(Network*, Network*, int, int);
+        Network(Network*, Network*);
         ~Network();
         int getNumInputs();
         int getNumHiddenLayers();

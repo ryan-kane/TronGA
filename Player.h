@@ -8,11 +8,17 @@
 #include <iostream>
 #include <vector>
 
+static int next_id = 0;
+
 class Player{
     Network* network;
+    int id;
     public:
         Player();
+        Player(Player*, Player*);
         ~Player();
+        Network* getNetwork();
+        int get_id();
         int move(std::vector<int>&);
         int convertToDir(int);
 };

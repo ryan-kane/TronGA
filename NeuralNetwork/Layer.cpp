@@ -13,7 +13,7 @@ Layer::Layer(int num_inputs, int num_neurons): num_neurons(num_neurons){
 Layer::Layer(std::vector<Neuron*> neurons): neurons(neurons), 
                     num_neurons(neurons.size()){}
 
-Layer::Layer(Layer* l1, Layer* l2, int score1, int score2){
+Layer::Layer(Layer* l1, Layer* l2){
     // it is assumed that the layers are of the same dimension
     Neuron* n1;
     Neuron* n2;
@@ -21,7 +21,7 @@ Layer::Layer(Layer* l1, Layer* l2, int score1, int score2){
     for(int i = 0; i < l1->getNumNeurons(); i++){
         n1 = l1->getNeuron(i);
         n2 = l2->getNeuron(i);
-        neurons.push_back(new Neuron(n1, n2, score1, score2));
+        neurons.push_back(new Neuron(n1, n2));
     }
 }
 
